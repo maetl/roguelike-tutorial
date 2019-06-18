@@ -1,0 +1,26 @@
+{
+  "name": "roguelike-tutorial",
+  "private": true,
+  "description": "Following along with The Complete Roguelike Tutorial in JavasScript",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maetl/roguelike-tutorial.git"
+  },
+  "keywords": [
+    "roguelike"
+  ],
+  "author": "Mark Rickerby <me@maetl.net> (https://maetl.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maetl/roguelike-tutorial/issues"
+  },
+  "homepage": "https://github.com/maetl/roguelike-tutorial#readme"
+}
