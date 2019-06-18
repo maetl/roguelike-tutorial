@@ -1,9 +1,8 @@
 # r/RoguelikeDev Does The Complete Roguelike Tutorial
 
-![RoguelikeDev Does the Complete Roguelike Tutorial Event Logo](https://i.imgur.com/EYJFgdI.png)
+![RoguelikeDev Does the Complete Roguelike Tutorial Event Logo](https://i.imgur.com/3MAzEp1.png)
 
-At [r/roguelikedev](https://www.reddit.com/r/roguelikedev/) we're doing a dev-along following [The Complete Roguelike Tutorial](http://rogueliketutorials.com/libtcod/1).
-
+At [r/roguelikedev](https://www.reddit.com/r/roguelikedev/) we're doing a dev-along following [The Complete Roguelike Tutorial](http://rogueliketutorials.com/tutorials/tcod/)
 ## If you would like to participate on GitLab
 
 * [Sign up for a free personal account](https://gitlab.com/users/sign_in#register-pane) if you don't already have one.
