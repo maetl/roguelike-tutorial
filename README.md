@@ -7,3 +7,7 @@ At [r/roguelikedev](https://www.reddit.com/r/roguelikedev/) we're doing a dev-al
 ## What’s going on here?
 
 Here, I’m following along with the tutorial steps. The aim is to create a reference codebase in JavaScript that provides a decent foundation for making new games that are playable in web browsers. This means not only completing the tutorial, but also structuring the code so that it’s easy to customise and adapt to support different game concepts.
+
+## License
+
+MIT. See the `LICENSE` file included with this software distribution.
