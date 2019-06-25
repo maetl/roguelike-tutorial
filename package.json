@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/maetl/roguelike-tutorial/issues"
   },
-  "homepage": "https://github.com/maetl/roguelike-tutorial#readme"
+  "homepage": "https://github.com/maetl/roguelike-tutorial#readme",
+  "dependencies": {
+    "overprint": "^0.7.6"
+  }
 }
