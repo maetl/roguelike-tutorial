@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/maetl/roguelike-tutorial#readme",
   "dependencies": {
-    "overprint": "^0.7.6"
+    "overprint": "^0.7.6",
+    "rung": "^0.5.0"
   }
 }
