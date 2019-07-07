@@ -30,6 +30,7 @@ function update() {
     if (stage.canMoveTo(mx, my)) {
       stage.player.x = Math.min(width - 1, Math.max(0, mx));
       stage.player.y = Math.min(height - 1, Math.max(0, my));
+      stage.refreshVisibility();
     }
 
     action = null;
