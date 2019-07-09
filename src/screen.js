@@ -5,6 +5,7 @@ import Cell from "overprint/overprint/cell";
 const Glyphs = {
   EMPTY: Cell(" "),
   PLAYER: Cell("@"),
+  MONSTER: Cell("M", "#0C9"),
   LIT: {
     WALL: Cell("#", "#aaa"),
     FLOOR: Cell(".", "#888")
@@ -42,8 +43,17 @@ class Screen {
     this.grid.writeCell(player.x, player.y, Glyphs.PLAYER);
   }
 
+  renderEntities(stage) {
+    for (let entity of stage.entities) {
+      if (stage.isVisible(entity.x, entity.y)) {
+        this.grid.writeCell(entity.x, entity.y, Glyphs.MONSTER)
+      }
+    }
+  }
+
   render(stage) {
     this.renderMap(stage);
+    this.renderEntities(stage);
     this.renderPlayer(stage.player);
     this.grid.render();
   }

@@ -109,12 +109,9 @@ function generateDungeon(width, height, configuration) {
     prevRoom = room;
   }
 
-  const start = rooms[0].center();
-
   return {
     rooms,
-    tiles,
-    start
+    tiles
   }
 }
 
