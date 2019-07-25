@@ -1,7 +1,9 @@
 import Tiles from "./tiles";
 import Entity from "./entity";
+import Directions from "./directions";
 import { generateDungeon } from "./dungeon";
 import { createFOV } from "./fov";
+import { spawnMonster } from "./monsters";
 
 class Stage {
   constructor(width, height, player) {
@@ -11,6 +13,29 @@ class Stage {
     this.map = tiles;
     this.initializeEntities(player, rooms);
     this.initializeVisibility();
+  }
+
+  movementCost(x, y) {
+    return this.isUnoccupied(x, y) ? 1 : 5;
+  }
+
+  adjacentPoints(x, y) {
+    const points = [];
+    for (let direction of Directions.CARDINAL) {
+      let candidate = {
+        x: x + direction.x,
+        y: y + direction.y
+      };
+      if (
+        candidate.x >= 0 &&
+        candidate.x < this.width &&
+        candidate.y >= 0 &&
+        candidate.y < this.height
+      ) {
+        points.push(candidate);
+      }
+    }
+    return points;
   }
 
   canMoveTo(x, y) {
@@ -80,7 +105,7 @@ class Stage {
     for (let r=1; r<rooms.length; r++) {
       if (Math.random() > 0.6) continue;
       const spawnAt = rooms[r].center();
-      this.addEntity(new Entity(spawnAt.x, spawnAt.y, "monster"));
+      this.addEntity(spawnMonster(spawnAt.x, spawnAt.y));
     }
   }
 
