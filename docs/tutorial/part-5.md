@@ -248,7 +248,7 @@ class Stage {
     for (let r=1; r<rooms.length; r++) {
       if (Math.random() > 0.6) continue;
       const spawnAt = rooms[r].center();
-      this.addEntity(new Entity(spawnAt.x, spawnAt.y, "monster"));
+      this.addEntity(new Entity(spawnAt.x, spawnAt.y, "monster", { blocking: true }));
     }
   }
 
@@ -303,7 +303,7 @@ function update() {
     const mx = stage.player.x + action.x;
     const my = stage.player.y + action.y;
 
-    if (stage.canMoveTo(mx, my) && stage.isUnoccupied(x, y)) {
+    if (stage.canMoveTo(mx, my) && stage.isUnoccupied(mx, my)) {
       stage.moveEntityTo(player, mx, my);
       stage.refreshVisibility();
     }
