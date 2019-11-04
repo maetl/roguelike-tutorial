@@ -318,13 +318,13 @@ The first thing we need is a list of unit vectors for the cardinal directions, s
 Create a new file `src/directions.js` and add the following.
 
 ```js
-const Directions {
+const Directions = {
   CARDINAL: [
     { x: -1, y: 0 },
     { x: 1, y: 0},
     { x: 0, y: -1 },
     { x: 0, y: 1 }
-  ];
+  ]
 }
 
 export default Directions;
