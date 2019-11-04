@@ -79,9 +79,7 @@ function spawnMonster(x, y) {
   return new Entity(x, y, "monster", { blocking: true }, fightable);
 }
 
-export {
-  spawnMonster
-}
+export { spawnMonster };
 ```
 
 We’ll deal with abstracting the player attributes later. We can get this working now by modifying the player entity creation in place in `index.js`.
@@ -112,7 +110,7 @@ class Stage {
   initializeEntities(player, rooms) {
     // ...
 
-    for (let r=1; r<rooms.length; r++) {
+    for (let r = 1; r < rooms.length; r++) {
       // ...
 
       this.addEntity(spawnMonster(spawnAt.x, spawnAt.y));
@@ -193,7 +191,9 @@ class Fightable {
 
     if (attackRoll > defensiveScore) {
       const damage = target.dealDamage();
-      console.log(`${this.owner.name} hit ${target.owner.name} for ${damage} damage`);
+      console.log(
+        `${this.owner.name} hit ${target.owner.name} for ${damage} damage`
+      );
     } else {
       console.log(`${this.owner.name} was blocked by ${target.owner.name}`);
     }
@@ -252,8 +252,8 @@ function spawnMonster(x, y) {
   const components = {
     fightable: new Fightable(20, 0, 0),
     volition: new Volition()
-  }
-  return new Entity(x, y, "monster", {}, components);
+  };
+  return new Entity(x, y, "monster", { blocking: true }, components);
 }
 ```
 
@@ -339,7 +339,7 @@ import Random from "rung/src/random";
 const rng = new Random(Math.random);
 
 function drunkenWalk(entity, stage) {
-  for (let i=0; i<4; i++) {
+  for (let i = 0; i < 4; i++) {
     let direction = Directions.CARDINAL[rng.integer(4)];
     let x = entity.x + direction.x;
     let y = entity.y + direction.y;
@@ -351,9 +351,7 @@ function drunkenWalk(entity, stage) {
   }
 }
 
-export {
-  drunkenWalk
-}
+export { drunkenWalk };
 ```
 
 Update `volition.js` to use this behavior.
@@ -448,9 +446,7 @@ function createPathfinder(
   };
 }
 
-export {
-  createPathfinder
-}
+export { createPathfinder };
 ```
 
 Of course, you could just [import a library](https://www.npmjs.com/search?q=keywords:astar) to handle the entire process of A\* searching if that suits your needs better, but there are some advantages of having the algorithm inline in your project. For one, it makes it easier to adapt the API directly to your project’s style. It should be very straightforward to adapt the code here to flip between Dijkstra’s algorithm and greedy best-first search or collect the set of visited paths in a different way. Having the code inline also facilitates experimenting with performance optimisation if needed.
@@ -478,7 +474,7 @@ In `stage.js`, add this `adjacentPoints` method to build up a list of neighbours
 
 ```js
 // ...
-import Directions from "./directions"
+import Directions from "./directions";
 // ...
 
 class Stage {
@@ -505,7 +501,6 @@ class Stage {
 
   // ...
 }
-
 ```
 
 ## The traversal cost
@@ -543,19 +538,15 @@ In `behavior.js`, create a new function `meleeCharge` and add the cost heuristic
 
 function meleeCharge(entity, target, stage) {
   const adjacentNodes = (x, y) => stage.adjacentPoints(x, y);
-  const costHeuristic = (from, to) => (
-    Math.abs(from.x - to.x) + Math.abs(from.y - to.y) * 1.01
-  );
+  const costHeuristic = (from, to) =>
+    Math.abs(from.x - to.x) + Math.abs(from.y - to.y) * 1.01;
   const traversalCost = (x, y) => stage.movementCost(x, y);
   const isTraversable = (x, y) => stage.canMoveTo(x, y);
 
   // Chase the player here
 }
 
-export {
-  drunkenWalk,
-  meleeCharge
-}
+export { drunkenWalk, meleeCharge };
 ```
 
 ## Chasing the player
