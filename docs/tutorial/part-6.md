@@ -74,13 +74,13 @@ Create a new file `src/monsters.js` and add a placeholder function for generatin
 import Entity from "./entity";
 import Fightable from "./fightable";
 
-function makeMonster(x, y) {
+function spawnMonster(x, y) {
   const fightable = new Fightable(20, 0, 0);
-  return new Entity(spawnAt.x, spawnAt.y, "monster", {}, fightable);
+  return new Entity(x, y, "monster", {}, fightable);
 }
 
 export {
-  makeMonster
+  spawnMonster
 }
 ```
 
