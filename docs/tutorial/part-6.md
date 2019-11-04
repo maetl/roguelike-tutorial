@@ -231,7 +231,7 @@ class Entity {
     // ...
 
     for (let attribute of Object.keys(components)) {
-      this[attribute] = component;
+      this[attribute] = components[attribute];
       this[attribute].owner = this;
     }
   }
