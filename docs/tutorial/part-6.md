@@ -93,7 +93,7 @@ const player = new Entity(
   Math.floor(width / 2),
   Math.floor(height / 2),
   "player",
-  {},
+  { blocking: true },
   new Fightable(30, 10, 10)
 );
 ```
